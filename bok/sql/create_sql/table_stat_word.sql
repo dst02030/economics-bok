@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS bok.stat_word (
+    _ts TIMESTAMPTZ NOT NULL,
+    인덱스 CHAR(10) NOT NULL,
+    한글용어 VARCHAR(100) NOT NULL,
+    영문용어 VARCHAR(100),
+    용어설명 VARCHAR(4000) NOT NULL,
+    입력날짜 TIMESTAMP NOT NULL,
+    수정날짜 TIMESTAMP NOT NULL,
+    PRIMARY KEY (한글용어, 수정날짜)
+);

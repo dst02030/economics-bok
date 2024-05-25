@@ -1,0 +1,121 @@
+max_rows: 10000
+api_start_date: "1900-01-01"
+
+### Path
+schema_name: bok
+
+data:
+  stat_list:
+    rename:
+      P_STAT_CODE: 상위통계표코드
+      STAT_CODE: 통계표코드
+      STAT_NAME: 통계명
+      CYCLE: 주기
+      SRCH_YN: 검색가능여부
+      ORG_NAME: 출처
+    table_name: stat_list
+    dup_cols: 
+      - 통계표코드
+
+  stat_word:
+    rename:
+      statTermId: 인덱스
+      statTermNm: 한글용어
+      statTermEngNm: 영문용어
+      statTermDesc: 용어설명
+      zRegDtm: 입력날짜
+      zModDtm: 수정날짜
+    table_name: stat_word
+    dup_cols: 
+      - 한글용어
+      - 수정날짜
+
+  stat_item:
+    rename:
+      STAT_CODE: 통계표코드
+      STAT_NAME: 통계명
+      GRP_CODE: 항목그룹코드
+      GRP_NAME: 항목그룹명
+      ITEM_CODE: 통계항목코드
+      ITEM_NAME: 통계항목명
+      P_ITEM_CODE: 상위통계항목코드
+      P_ITEM_NAME: 상위통계항목명
+      CYCLE: 주기
+      START_TIME: 수록시작일자
+      END_TIME: 수록종료일자
+      DATA_CNT: 자료수
+      UNIT_NAME: 단위
+      WEIGHT: 가중치
+    table_name: stat_item
+    dup_cols:
+      - 통계명
+      - 통계항목명
+      - 주기
+      - 수록시작일자
+      - 수록종료일자
+      - 자료수
+      - 단위
+
+  
+  stat_search:
+    rename:
+      STAT_CODE: 통계표코드
+      STAT_NAME: 통계명
+      ITEM_CODE1: 통계항목코드1
+      ITEM_NAME1: 통계항목명1
+      ITEM_CODE2: 통계항목코드2
+      ITEM_NAME2: 통계항목명2
+      ITEM_CODE3: 통계항목코드3
+      ITEM_NAME3: 통계항목명3
+      ITEM_CODE4: 통계항목코드4
+      ITEM_NAME4: 통계항목명4
+      UNIT_NAME: 단위
+      WGT: 가중치
+      TIME: 시점
+      DATA_VALUE: 값
+    table_name: stat_search
+    dup_cols:
+      - 통계표코드
+      - 시점
+      - 통계항목코드1
+      - 통계항목코드2
+      - 통계항목코드3
+      - 통계항목코드4
+
+  stat_key:
+    rename:
+      CLASS_NAME: 통계그룹명
+      KEYSTAT_NAME: 통계명
+      DATA_VALUE: 값
+      CYCLE: 시점
+      UNIT_NAME: 단위
+    table_name: stat_key
+    dup_cols:
+      - 통계그룹명
+      - 통계명
+      - 값
+      - 시점
+
+  stat_meta:
+    rename:
+      statDescObjNm: 데이터명
+      statDescObjEngNm: 영문데이터명
+      zRegDtm: 입력날짜
+      zModDtm: 수정날짜
+      LVL: 레벨
+      P_CONT_CODE: 상위통계항목코드
+      CONT_CODE: 통계항목코드
+      CONT_NAME: 통계항목명
+      META_DATA: 메타데이터
+    table_name: stat_meta
+    dup_cols:
+      - 레벨
+      - 데이터명
+      - 통계항목코드
+      - 메타데이터_key
+
+  stat_date:
+    url_info: {'통계종류별 공표일정': 'http://www.bok.or.kr/portal/stats/statsPublictSchdul/listKnd.do?menuNo=200776',
+    'SDDS 대상통계': 'http://www.bok.or.kr/portal/stats/sddsTrgetStats/listStats.do?menuNo=200777'}
+    start_year: 2010
+    table_name: stat_date

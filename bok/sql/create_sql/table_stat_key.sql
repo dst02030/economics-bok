@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS bok.stat_key (
+    _ts TIMESTAMPTZ NOT NULL,
+    통계그룹명 VARCHAR(400) NOT NULL,
+    통계명 VARCHAR(200) NOT NULL,
+    값 NUMERIC(18, 2) NOT NULL,
+    시점 VARCHAR(13) NOT NULL,
+    단위 VARCHAR(200),
+    PRIMARY KEY (통계그룹명, 통계명, 시점)
+);
